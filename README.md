@@ -1,2 +1,1 @@
-# poper
-Poper an Artist platform
+It's a simple node crud for a poper project.
