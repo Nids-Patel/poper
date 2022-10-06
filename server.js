@@ -42,16 +42,16 @@ app.use(session({secret: "Its a secret!", resave: true, saveUninitialized: true}
 // --------------------------    ROUTES    --------------------------
 
         // Require Users routes
-        app.use("/" + process.env.API_VERSION_v1 + "/users", require('./users'));
+        app.use("/" + process.env.API_VERSION_v1 + "/users", require('./Routes/v1/users'));
 
         // Require Roles routes
-        app.use("/" + process.env.API_VERSION_v1 + "/roles", require('./roles'));
+        app.use("/" + process.env.API_VERSION_v1 + "/roles", require('./Routes/v1/roles'));
 
         // Require User Address routes
-        app.use("/" + process.env.API_VERSION_v1 + "/useradd", require('./useradd'));
+        app.use("/" + process.env.API_VERSION_v1 + "/useradd", require('./Routes/v1/useradd'));
 
         // Require User Detail routes
-        app.use("/" + process.env.API_VERSION_v1 + "/userdetail", require('./userdetail'));
+        app.use("/" + process.env.API_VERSION_v1 + "/userdetail", require('./Routes/v1/userdetail'));
 
         app.get('/', (req, res) => {
             res.send("Welcome to " + process.env.PROJECT_NAME)
