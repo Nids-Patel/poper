@@ -6,7 +6,7 @@ module.exports = app => {
         });
 
         // Require Users routes
-        app.use("/users", require('./users'));
+        app.use("/" + process.env.API_VERSION_v1 + "/users", require('./users'));
 
         // Require Roles routes
         app.use("/" + process.env.API_VERSION_v1 + "/roles", require('./roles'));
