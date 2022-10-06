@@ -3,9 +3,9 @@ require('dotenv').config();
 
 // Configuring the database
 //require('./Configs/db.config.js');
-const uri = process.env.MONGODB_URI;
-
-const http = require('http');
+module.exports = {
+const uri : process.env.MONGODB_URI;
+}
 
 // GLOBAL SETTINGS FILES
 require('./Configs/globals'); 
