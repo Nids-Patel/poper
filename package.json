@@ -1,12 +1,15 @@
 {
   "name": "nodeexpressapi",
   "version": "1.0.0",
-  "description": "Simple CRUD API in node, express and mongodb",
+  "description": "API for Poper",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server"
+    "start": "node server.js"
   },
+  "engines": {
+    "node": "8.9.3"
+}
   "author": "",
   "license": "ISC",
   "dependencies": {
