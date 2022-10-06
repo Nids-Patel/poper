@@ -41,6 +41,7 @@ app.use(session({secret: "Its a secret!", resave: true, saveUninitialized: true}
 
 // --------------------------    ROUTES    --------------------------
 const appRoutesV1 = require('./Routes/v1')
+console.log(appRoutesV1)
 appRoutesV1(app)
 
 // listen for requests
