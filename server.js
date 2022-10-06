@@ -23,7 +23,7 @@ const session = require('express-session');
 const app = express();
 
 // Setup server port
-const port = process.env.PORT || 6600;
+const port = process.env.PORT || 8600;
 
 app.use(cors())
 
