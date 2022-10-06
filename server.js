@@ -40,8 +40,22 @@ app.use(express.static(__dirname + '/Assets'));
 app.use(session({secret: "Its a secret!", resave: true, saveUninitialized: true}));
 
 // --------------------------    ROUTES    --------------------------
-const appRoutesV1 = require('./Routes/v1');
-appRoutesV1(app)
+
+        // Require Users routes
+        app.use("/" + process.env.API_VERSION_v1 + "/users", require('./users'));
+
+        // Require Roles routes
+        app.use("/" + process.env.API_VERSION_v1 + "/roles", require('./roles'));
+
+        // Require User Address routes
+        app.use("/" + process.env.API_VERSION_v1 + "/useradd", require('./useradd'));
+
+        // Require User Detail routes
+        app.use("/" + process.env.API_VERSION_v1 + "/userdetail", require('./userdetail'));
+
+        app.get('/', (req, res) => {
+            res.send("Welcome to " + process.env.PROJECT_NAME)
+        });
 
 // listen for requests
 app.listen(port, () => {   
