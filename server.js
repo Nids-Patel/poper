@@ -3,7 +3,7 @@ require('dotenv').config();
 
 // Configuring the database
 //require('./Configs/db.config.js');
-const uri = process.env.MONGODBURI;
+const uri = process.env.MONGODB_URI;
 
 // GLOBAL SETTINGS FILES
 require('./Configs/globals'); 
@@ -35,9 +35,6 @@ app.use(bodyParser.json())
 
 // SERVE STATIC IMAGES FROM ASSETS FOLDER
 app.use(express.static(__dirname + '/Assets')); 
-
-// Creating Session
-app.use(session({secret: "Its a secret!", resave: true, saveUninitialized: true}));
 
 // --------------------------    ROUTES    --------------------------
 const appRoutesV1 = require('./Routes/v1')
