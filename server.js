@@ -5,6 +5,8 @@ require('dotenv').config();
 //require('./Configs/db.config.js');
 const uri = process.env.MONGODB_URI;
 
+const http = require('http');
+
 // GLOBAL SETTINGS FILES
 require('./Configs/globals'); 
 
@@ -40,8 +42,7 @@ app.use(express.static(__dirname + '/Assets'));
 app.use(session({secret: "Its a secret!", resave: true, saveUninitialized: true}));
 
 // --------------------------    ROUTES    --------------------------
-const appRoutesV1 = require('./Routes/v1')
-console.log(appRoutesV1)
+const appRoutesV1 = require('./Routes/v1');
 appRoutesV1(app)
 
 // listen for requests
