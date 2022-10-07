@@ -5,7 +5,6 @@ const userdetailModel = new (require('../../Models/v1/userdetail'))();
 const crypto = require('crypto-js');
 
 class UsersController {
-    
     // Retrieve all users
     async list(req, res) {
         try {
@@ -29,41 +28,14 @@ class UsersController {
             } 
 
             const file = req.file;
-
             // check if image selected
             if(!file) {
                 return res.status(400).send('No image selected');
             }
-
             // show image path
             const fileName = req.file.filename;
             const basepath = `${req.protocol}://${req.get('host')}/Assets/`;
             req.body.img = `${basepath}${fileName}`;
-
-            // QR Code Generation
-            // const url = req.body.email;
-            // if(url){
-                // Print the QR code to terminal
-                /* qr_code.toString(url,{type:'terminal'},
-                                    function (err, QRcode) {
-                
-                    if(err) return console.log("error occurred")
-                    var file_path = "Assets/qrcode/"+ Date.now() +".png";
-                    qr_code.toFile(file_path,url);
-                    // Printing the generated code
-                    console.log(QRcode)
-                }) */
-                // qr_code.toDataURL(url, (err, QRcode) => {
-                //     if(err) return console.log("error occurred")
-                //     var file_path = "Assets/qrcode/"+ Date.now() +".png";
-                //     qr_code.toFile(file_path,url);
-                //     // Printing the generated code
-                //     console.log(QRcode)
-                // });
-
-            // }else{
-            //     res.send('URL Not Set!');
-            // }
 
             let data = await usersModel.add(req.body);
             req.body.user_id = data._id
@@ -86,15 +58,6 @@ class UsersController {
                 message: "User data retrieved successfully!!",
                 data: data 
             });
-            // Use of Session 
-            // if(req.session.page_views){
-            //     req.session.page_views++;
-            //     res.handler.success(data, 'User data retrieved successfully. You visited this page '+ req.session.page_views + " times");
-            //  } else {
-            //     req.session.page_views = 1;
-            //     res.handler.success(data,"User data retrieved successfully. Welcome to this page for the first time!");
-            //  }  
-            
         } catch (error) {
             res.status(404).send(error);
         }
@@ -186,7 +149,6 @@ class UsersController {
             res.status(404).send(error);
         }
     }
-
 }   
 
 module.exports = UsersController;
