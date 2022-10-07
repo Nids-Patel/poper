@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // SERVE STATIC IMAGES FROM ASSETS FOLDER
-app.use(express.static(__dirname + '/Assets')); 
+app.use(express.static(path.join(__dirname + '/Assets'))); 
 
 // --------------------------    ROUTES    --------------------------
 const appRoutesV1 = require('./Routes/v1')
