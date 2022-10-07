@@ -1,7 +1,6 @@
 const rolesModel = new (require('../../Models/v1/roles'))();
 
 class RolesController {
-    
     // Retrieve all roles
     async list(req, res) {
         try {
@@ -82,7 +81,6 @@ class RolesController {
             res.status(404).send(error);
         }
     }
-
 }
 
 module.exports = RolesController;
