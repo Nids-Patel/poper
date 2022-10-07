@@ -37,9 +37,10 @@ app.use(bodyParser.json())
 app.use(express.static(__dirname + '/Assets')); 
 
 // --------------------------    ROUTES    --------------------------
+console.log("start")
 const appRoutesV1 = require('./Routes/v1')
 appRoutesV1(app)
-
+console.log("end")
 // listen for requests
 app.listen(port, () => {   
     console.log(`Server is listening on port ${port}`);
