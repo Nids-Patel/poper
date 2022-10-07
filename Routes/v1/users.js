@@ -3,7 +3,6 @@ const router = express.Router();
 
 const usersController = new (require('../../Controllers/v1/users'))();
 const fileManager = new(require('./../../Configs/fileManager'))();
-console.log("usercontroller called")
 // Retrieve all users
 router.route('/').get(usersController.list);
 
