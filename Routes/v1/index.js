@@ -4,7 +4,7 @@ module.exports = app => {
         app.get('/', (req, res) => {
             res.send("Welcome to " + process.env.PROJECT_NAME)
         });
-console.log("index route")
+
         // Require Users routes
         app.use("/" + process.env.API_VERSION_v1 + "/users", require('./users'));
 
