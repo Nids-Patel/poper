@@ -1,5 +1,5 @@
 // PARSE .ENV
-require('dotenv').config();
+//require('dotenv').config();
 
 // Configuring the database
 //require('./Configs/db.config.js');
